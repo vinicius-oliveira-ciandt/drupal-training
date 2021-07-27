@@ -6,4 +6,5 @@ services:
   appserver:
     build:
       - composer install
-      - phpcs --config-set installed_paths ../../drupal/coder/coder_sniffer
+    run:
+      - install.sh
