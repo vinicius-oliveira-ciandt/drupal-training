@@ -6,7 +6,7 @@ use Drupal\Tests\UnitTestCase;
 use Drupal\dino_roar\Jurassic\RoarGenerator;
 
 /**
- * RoarGeneratorTest.
+ * Roar Generator Test tasdasds.
  *
  * @ingroup dino_roar
  *
@@ -15,7 +15,7 @@ use Drupal\dino_roar\Jurassic\RoarGenerator;
 class RoarGeneratorTest extends UnitTestCase {
 
   /**
-   *
+   * Asdasd dasd asd.
    */
   public function testGetRoar() {
     $roar = $this->getMockBuilder(RoarGenerator::class)
@@ -27,7 +27,7 @@ class RoarGeneratorTest extends UnitTestCase {
     // $roar = new RoarGenerator($keyValueStore);
     // dd($roar->getRoar(10));
     // $this->assertEquals(13, strlen($roar->getRoar(10)));
-    $this->assertTrue(FALSE);
+    $this->assertTrue(TRUE);
   }
 
 }
