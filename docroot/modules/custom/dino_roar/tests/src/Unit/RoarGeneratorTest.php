@@ -2,11 +2,13 @@
 
 namespace Drupal\Tests\dino_roar\Unit;
 
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+use Drupal\Core\KeyValueStore\KeyValueStoreInterface;
 use Drupal\Tests\UnitTestCase;
 use Drupal\dino_roar\Jurassic\RoarGenerator;
 
 /**
- * Roar Generator Test tasdasds.
+ * RoarGeneratorTest.
  *
  * @ingroup dino_roar
  *
@@ -15,18 +17,31 @@ use Drupal\dino_roar\Jurassic\RoarGenerator;
 class RoarGeneratorTest extends UnitTestCase {
 
   /**
+   *
    */
-  public function testGetRoar() {
-    $roar = $this->getMockBuilder(RoarGenerator::class)
-      ->disableOriginalConstructor()
-      ->getMock();
+  public function testGetRoarWithoutCache() {
+    $prophecy = $this->prophesize(KeyValueFactoryInterface::class);
+    $prophecyDatabaseStorage = $this->prophesize(KeyValueStoreInterface::class);
+    $prophecy->get('dino')->willReturn($prophecyDatabaseStorage->reveal());
+    $prophecyDatabaseStorage->has('roar_10')->willReturn(FALSE);
+    $prophecyDatabaseStorage->set('roar_10', 'ROOOOOOOOOOAR')->willReturn(NULL);
 
-    // $roar->method('getRoar')->;
-    // // var_dump($keyValueStore);
-    // $roar = new RoarGenerator($keyValueStore);
-    // dd($roar->getRoar(10));
-    // $this->assertEquals(13, strlen($roar->getRoar(10)));
-    $this->assertTrue(TRUE);
+    $roar = new RoarGenerator($prophecy->reveal());
+    $this->assertSame(13, strlen($roar->getRoar(10)));
+  }
+
+  /**
+   *
+   */
+  public function testGetRoarWithCache() {
+    $prophecy = $this->prophesize(KeyValueFactoryInterface::class);
+    $prophecyDatabaseStorage = $this->prophesize(KeyValueStoreInterface::class);
+    $prophecy->get('dino')->willReturn($prophecyDatabaseStorage->reveal());
+    $prophecyDatabaseStorage->has('roar_10')->willReturn(TRUE);
+    $prophecyDatabaseStorage->get('roar_10')->willReturn('ROOOOOOOOOOAR');
+
+    $roar = new RoarGenerator($prophecy->reveal());
+    $this->assertSame(13, strlen($roar->getRoar(10)));
   }
 
 }
