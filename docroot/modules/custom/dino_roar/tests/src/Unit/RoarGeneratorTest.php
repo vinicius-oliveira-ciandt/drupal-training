@@ -15,7 +15,6 @@ use Drupal\dino_roar\Jurassic\RoarGenerator;
 class RoarGeneratorTest extends UnitTestCase {
 
   /**
-   * Asdasd dasd asd.
    */
   public function testGetRoar() {
     $roar = $this->getMockBuilder(RoarGenerator::class)
