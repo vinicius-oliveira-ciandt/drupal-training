@@ -24,4 +24,9 @@ tooling:
     service: appserver
     description: Run Tests
     cmd:
-      - phpunit --testsuite custom-module
+      - phpunit --testsuite custom-module --coverage-html reports/
+  phpstan:
+    service: appserver
+    description: Run PHPStan
+    cmd:
+      - phpstan analyse -l 8 docroot/modules/custom
