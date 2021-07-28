@@ -2,9 +2,26 @@ name: drupal-training
 recipe: drupal9
 config:
   webroot: docroot/
+  xdebug: "coverage"
 services:
   appserver:
     build:
       - composer install
     run:
-      - install.sh
+      - /app/install.sh
+tooling:
+  phpcs:
+    service: appserver
+    description: Run PHPCS
+    cmd:
+      - phpcs --standard=Drupal docroot/modules/custom
+  phpcsfix:
+    service: appserver
+    description: Run PHPCS fixer
+    cmd:
+      - phpcbf --standard=Drupal docroot/modules/custom
+  phpunit:
+    service: appserver
+    description: Run Tests
+    cmd:
+      - phpunit --testsuite custom-module

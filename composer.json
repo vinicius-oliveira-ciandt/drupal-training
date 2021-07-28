@@ -74,6 +74,7 @@
     "require-dev": {
         "drupal/coder": "^8.3",
         "drupal/core-dev": "^9.2",
-        "phpspec/prophecy-phpunit": "^2.0"
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpstan/phpstan": "^0.12.93"
     }
 }

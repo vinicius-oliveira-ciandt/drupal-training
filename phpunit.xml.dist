@@ -7,8 +7,12 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="docroot/core/tests/bootstrap.php" colors="true" beStrictAboutTestsThatDoNotTestAnything="true" beStrictAboutOutputDuringTests="true" beStrictAboutChangesToGlobalState="true" failOnWarning="true" printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" cacheResult="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage>
     <include>
-      <directory>docroot/modules/custom</directory>
+      <directory suffix=".php">docroot/modules/custom</directory>
     </include>
+    <exclude>
+      <directory suffix=".php">docroot/modules/custom/*/src/Tests/</directory>
+      <directory suffix=".php">docroot/modules/custom/*/tests/</directory>
+    </exclude>
   </coverage>
   <php>
     <!-- Set error reporting to E_ALL. -->
