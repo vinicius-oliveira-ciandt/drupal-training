@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  *
  */
-class RoarController extends ControllerBase {
+final class RoarController extends ControllerBase {
 
   /**
    * @var \Drupal\dino_roar\Jurassic\RoarGenerator

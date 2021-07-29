@@ -9,6 +9,9 @@ use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
  */
 class RoarGenerator {
 
+  /**
+   * @var \Drupal\Core\KeyValueStore\KeyValueFactoryInterface
+   */
   private $keyValue;
 
   /**
@@ -24,12 +27,12 @@ class RoarGenerator {
   public function getRoar($length) {
     $key = 'roar_' . $length;
     $store = $this->keyValue->get('dino');
+
     if ($store->has($key)) {
       return $store->get($key);
     }
     $string = 'R' . str_repeat('O', $length) . 'AR';
     $store->set($key, $string);
-
     return $string;
   }
 

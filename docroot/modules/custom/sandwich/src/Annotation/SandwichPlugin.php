@@ -32,7 +32,7 @@ class SandwichPlugin extends Plugin {
   public $label;
 
   /**
-   * A human readable description of the sandwich
+   * A human readable description of the sandwich.
    *
    * @var \Drupal\Core\Annotation\Translation
    *
@@ -41,7 +41,7 @@ class SandwichPlugin extends Plugin {
   public $description;
 
   /**
-   * The number of calories per serving of this sandwich
+   * The number of calories per serving of this sandwich.
    *
    * @var float
    */

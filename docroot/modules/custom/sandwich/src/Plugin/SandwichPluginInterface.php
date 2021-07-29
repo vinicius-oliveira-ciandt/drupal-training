@@ -9,7 +9,6 @@ use Drupal\Component\Plugin\PluginInspectionInterface;
  */
 interface SandwichPluginInterface extends PluginInspectionInterface {
 
-
   /**
    * Gets the plugin_id of the plugin instance.
    *
@@ -27,7 +26,7 @@ interface SandwichPluginInterface extends PluginInspectionInterface {
   public function getCalories();
 
   /**
-   * Place an order for a sandwich
+   * Place an order for a sandwich.
    *
    * @param array $extras
    *

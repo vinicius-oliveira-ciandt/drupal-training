@@ -11,7 +11,6 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
  */
 class SandwichPluginManager extends DefaultPluginManager {
 
-
   /**
    * Constructs a new SandwichPluginManager object.
    *

@@ -9,7 +9,6 @@ use Drupal\Component\Plugin\PluginBase;
  */
 abstract class SandwichPluginBase extends PluginBase implements SandwichPluginInterface {
 
-
   /**
    * {@inheritdoc}
    */
@@ -28,4 +27,5 @@ abstract class SandwichPluginBase extends PluginBase implements SandwichPluginIn
    * {@inheritdoc}
    */
   abstract public function order(array $extras);
+
 }
