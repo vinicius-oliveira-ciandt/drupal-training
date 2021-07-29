@@ -2,13 +2,15 @@ name: drupal-training
 recipe: drupal9
 config:
   webroot: docroot/
-  xdebug: "coverage"
+  xdebug: "debug,coverage"
+  config:
+    php: lando/php/php.ini
 services:
   appserver:
     build:
       - composer install
     run:
-      - /app/install.sh
+      - /app/lando/install.sh
 tooling:
   phpcs:
     service: appserver
@@ -25,6 +27,10 @@ tooling:
     description: Run Tests
     cmd:
       - phpunit --testsuite custom-module --coverage-html reports/
+  phpunitdebug:
+    service: appserver
+    cmd:
+      - php -d xdebug.remote_port=9003 vendor/bin/phpunit --testsuite custom-module --coverage-html reports/
   phpstan:
     service: appserver
     description: Run PHPStan
