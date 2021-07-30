@@ -1,0 +1,10 @@
+.header {
+  background-color: cadetblue;
+}
+.menu-edit {
+  background-color: coral;
+}
+
+.menu-edit li {
+  display: inline;
+}
